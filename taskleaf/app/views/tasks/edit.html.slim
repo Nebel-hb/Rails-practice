@@ -1,2 +1,5 @@
 h1 Tasks#edit
-p Find me in app/views/tasks/edit.html.slim
+.nav.justify-content-end
+    = link_to 'index', tasks_path, class: 'nav-link'
+
+= render partial: 'form', locals: {task: @task}

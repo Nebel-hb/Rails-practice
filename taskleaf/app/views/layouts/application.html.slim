@@ -13,5 +13,9 @@ html
     .app-title.navbar-expand-md.navbar-light.bg-light
       .navbar-brand Taskleaf
     .container
+    
+    .container
+      -if flash.notice.present?
+      .alert.alert-success= flash.notice
     = yield
  
