@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :login_required
+  
   def new
   end
   
@@ -13,10 +15,16 @@ class SessionsController < ApplicationController
     end  
   end
   
+  def destroy
+    reset_session
+    redirect_to root_path, notice: 'logout'
+    
+  end
+  
   private
   
   def session_params
-    params.rewuire(:session).permit(:email, :password)
+    params.require(:session).permit(:email, :password)
     
   end
 end
