@@ -1,6 +1,21 @@
 h1 Admin::Users#new
 
-.nav.justify-content-end
-    =link_to'一覧',admin_users_path, class: 'nav-link'
-    
-= render partial: 'form', locals: {user: @user}
+
+= form_with model: [:admin, @user], local:true do |f|
+    .form-group
+        = f.label :name,'Name', class: 'form-control'
+        = f.text_field :name, class: 'form-control'
+    .form-group
+        = f.label :email, 'Mail', class: 'form-control'
+        = f.text_field :email, class: 'form-control'
+    .form-check
+        = f.label :admin, class: 'fome-check-label' do
+            = f.check_box :admin, class: 'form-check-input'
+            |administrate
+    .form-group
+        = f.label :password, 'password'
+        = f.password_field :password, class: 'form-control'
+    .form-group
+        = f.label :password_confirmation, 'password(check)'
+        = f.password_field :password_confirmation, class: 'form-control'
+    =f.submit 'create', class: 'btn btn-primary'

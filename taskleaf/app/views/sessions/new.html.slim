@@ -3,7 +3,7 @@ h1 Sessinons#new
 = form_with scope: :session, local: true do |f|
     .form-group
         = f.label :email, 'email'
-        = f.text_field :emmail, class: 'form-control', id: 'session_email'
+        = f.text_field :email, class: 'form-control', id: 'session_email'
     .form-group
         = f.label :password, 'password'
         = f.password_field :password, class: 'form-control', id: 'session_password'
